@@ -1,4 +1,4 @@
-restaurant
-==========
+Starter-Project
+===============
 
-restaurant page
+All the resources
