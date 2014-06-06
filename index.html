@@ -2,52 +2,221 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--[if gt IE 8]><!-->
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<html class="no-js">
+<!--<![endif]-->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <!--Commented out Reset - Remove here to enable
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+    <title></title>
+    <meta content="" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'
+    type='text/css'><!-- font-family: 'Oswald', sans-serif; used for DIN  -->
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel=
+    'stylesheet' type='text/css'>
+    <!-- font-family: 'Ubuntu Condensed', sans-serif; use for Uni  -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
+    <!--Commented out Reset - Remove here to enable
         <link rel="stylesheet" href="css/reset.css">
         End of comment, remove to -->
-        
-        
-        <!-- optional type and form styling
+    <!-- optional type and form styling
         <link rel="stylesheet" href="css/base.css"> -->
-        <link rel="stylesheet" href="css/skeleton.css">
+    <link href="css/skeleton.css" rel="stylesheet">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <style type="text/css">
+    
+       
         
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
+    body {
+        background: #272b2d;
+    }
+
+    #header {
+        background-color: #3d4042;
+        margin-top: 15px;
+        width: 100%;
+        height: 110px;
+    }
+        
+    #title {
+        font-family: 'Oswald', sans-serif;
+        line-height: 30px;
+        color: #ffffff;
+        font-size: 25px;
+        padding-top: 30px
+        
+    }
+            
+    #img {
+        
+        margin-top: 17px;
+        margin-bottom: 25px;
+    }
+
+    #img img {
+        width: 100%;
+        height: auto;
+    }
+        
+    .nav {
+
+    list-style: none;
+    }
+
+    .nav,
+    .nav > li {
+    display: inline-block;
+    padding: 0;
+    margin-left: 35px;
+    }
+
+
+    .nav a {
+    display: block;
+    }
+
+	.masthead-nav {
+		font-family: 'Oswald', sans-serif;
+		color: #fff;
+		font-size: 25px;
+		letter-spacing: .1em;
+	}
+
+
+    .masthead-nav, .location {
+    text-align: center;
+    }
+    
+    
+    
+    
+  .hours {
+	  
+  }  
+  
+  .location {
+	  color: #fff;
+	  font-family: 'Ubuntu Condensed', sans-serif; 
+  }      
+   
+  
+  .butcher, .restaurant {
+	  color: #fff;
+	  font-family: 'Oswald', sans-serif;
+	  font-size: 10px;
+	  letter-spacing: .2em;
+	  
+  }
+  
+  .times {
+	  font-family: 'Ubuntu Condensed', sans-serif;
+	  font-size: 12px;
+	  letter-spacing: 1px;
+  }
+  
+  #slogan {
+	 font-family: 'Ubuntu Condensed', sans-serif;
+	 font-size: 13px;
+	 color: #fff;
+	 text-align: center;
+	 letter-spacing: .1em;
+  }
+        
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+        
+            <div id="title">
+                PARTS&amp;<br>
+                LABOR
+            </div>
+            
+            <div id="slogan">
+            
+            Restaurant serving the region's finest meats from the hearth and 20 craft beers on tap.
+            
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="img"><img alt="restaurant" src="rest.jpg"></div>
+
+    <div class="content">
+        <div class="container">
+            <nav class="masthead-nav">
+                <ul class="nav">
+                    <li><a href="#">ABOUT</a></li>
+
+                    <li><a href="#">MENU</a></li>
+
+                    <li><a href="#">LOCATION</a></li>
+
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </nav>
+            
+        <div class="location">
+	       <p>2600 N. Howard St.<br>
+	       Baltimore, MD, 21218<br>
+	       443-873- 8887</p> 
+	        
+        </div>
+        
+        <div class="hours">
+        
+        	<div class="butcher">
+        		<h2>BUTCHER HOURS</h2>
+        		<div class="times">
+        		
+        		<p>Mon-Sun: 11am - 7pm</p>
+        		
+        		</div>
+        		
+        		
+        	</div>
+        
+			<div class="restaurant">
+				<h2>RESTAURANT HOURS</h2>
+				<p>Sun-Thurs: 5pm - 10pm<br>
+					Fri-Sat: 5pm - 11pm
+			
+			</div>
+        
+        </div>
+      
+            
+        </div>
+    </div>
+    
+    <!-- menu stuff -->
+    
+    <div class="menu">
+	    
+	    
+	    
+    </div>
+    
+    
+    
+    
+    
+    <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        
-        <!-- Load jQuery Plugins here -->
-        
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
-    </body>
+    <!-- Add your site or application content here -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>
+window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+    </script><!-- Load jQuery Plugins here -->
+    <script src="js/plugins.js"></script><script src="js/main.js"></script>
+</body>
 </html>
