@@ -139,26 +139,31 @@
     border-bottom: 1px solid #fff;
     }
       
-    .menu-container {
+    .food-list {
     
         padding: 20px;
-        background-color: #272b2d;
-        width:100;
-        height:auto;
-        z-index: 99;
-    
+        background-color: #d08989;
     }    
         
         
         
-   .food-title {
-        font-family: 'Ubuntu Condensed', sans-serif;
-       
-       color: #fff;
-        margin-left: 150px;
-       
-       padding-top: 72px;
-   }
+   .food-item {
+        overflow:hidden;
+        position: relative;
+		color: #fff;
+		padding-top: 23px;
+	margin-top: 24px;
+     }
+     
+     
+    .food-name {
+		width: 80%;
+		margin-bottom: 0;
+		font-family: 'Ubuntu Condensed', sans-serif;
+		font-size: 13.3px;
+		line-height: 18px;
+		letter-spacing: .2em;
+	} 
         
         
     .food-ingred {
@@ -249,21 +254,44 @@
     
     <!-- menu stuff -->
     
+    
     <div class="menu-title">
 	    <h1>BEER SNACKS</h1>
     </div>
+  
+	<ul class="food-list columns four">
+		
+		<li class="food-item">
+				<h4 class="food-name">Pickled Eggs</h4>
+				<p>
+		
+		 </li>
+		
+		
+		
+		
+		
+		
+	</ul>
+  
+  
+  
+   <!--   not available for now 
+   
+   
+    <ul class="menu-container columns four">
     
-    <div class="menu-container">
-    
+     <li> 
     
     <h3 class="food-title">Pickled Eggs</h3>
+        
         <p class="food-ingred">beets, onions</p>
         <p class="food-price">2.00</p>
     
+     </li> 
     
     
-    
-    
+    -->
         
         
         </div>
