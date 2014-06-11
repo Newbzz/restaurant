@@ -90,7 +90,11 @@ body {
 }
     
 .hours {
-	  
+	
+	width: 60%;
+	margin: 0 auto; 
+	text-align: center; 
+	margin-bottom: 200px;
 }  
   
 .location {
@@ -171,6 +175,32 @@ body {
 }
  
  
+
+.side {
+	position: absolute;
+	margin-top: 200px;
+	left: -150px;
+}
+
+.sidenav {
+	font-family: 'Oswald', sans-serif;
+	color: #fff;
+	
+	letter-spacing: 2px;
+}
+
+.side-menu {
+	font-family: 'Oswald', sans-serif;
+	font-size: 4px;
+	letter-spacing: 2px;
+	color: #fff;
+}
+
+
+
+
+
+
  
  
 .social-instagram {
@@ -197,7 +227,7 @@ body {
             </div>
             
             <div id="slogan">
-                Restaurant serving the region's finest meats from the hearth and 20                     craft beers on tap.
+                Restaurant serving the region's finest meats from the hearth and 20 craft beers on tap.
             
             </div>
            
@@ -234,7 +264,7 @@ body {
         
         <div class="hours">
         
-        	<div class="butcher">
+        	<ul class="butcher columns four ">
         		<h2>BUTCHER HOURS</h2>
         		<div class="times">
         		
@@ -243,17 +273,61 @@ body {
         		</div>
         		
         		
-        	</div>
+        	</ul>
         
-			<div class="restaurant">
+			<ul class="restaurant columns four">
 				<h2>RESTAURANT HOURS</h2>
 				<p>Sun-Thurs: 5pm - 10pm<br>
 					Fri-Sat: 5pm - 11pm
 			
-			</div>
+			</ul>
         
         </div>
      
+   
+     <!--sidebar navigation -->
+    
+    <div class="side">
+    	<div class="sidenav columns three">
+    	<h2>DINNER</h2>
+		
+    		<ul classs="side-menu">
+    		
+    		BEER SNACKS<br><br>
+    		FROM THE SALT HOUSE<br><br>
+    		SALADS<br><br>
+    		DRY-AGED BUTCHER'S CUTS<br><br>
+    		SANDWICHES<br><br>
+    		VARIETIES<br><br>
+    		SAUSAGES<br><br>
+    		HEARTH VEGETABLES<br><br>
+    		ON THE SIDE<br><br>
+    		
+    		</ul>
+    		
+    		
+    		<div class="sidenav columns three">
+    	<h2>BEER</h2>
+		
+    		<ul classs="side-menu">
+    		
+    		BEER<br><br>
+    		FARM BEER<br><br>
+    		CIDER<br><br>
+    		LIBATIONS<br><br>
+    		TEETOTALERS<br><br>
+    		WINES ON DRAUGHT<br><br>
+    		WHITE BY THE BOTTLE<br><br>
+    		RED BY THE BOTTLE<br><br>
+    		
+    		</ul>
+    		
+    		</div>	
+    	</div>
+    </div>
+ 
+    
+    
     
 		    <!-- menu stuff -->
 		    
@@ -1267,15 +1341,29 @@ body {
 					 </li>
                     
                     <li class="food-item">
-							<h4 class="food-name"></h4>
-							<p class="food-ingred"></p>
+							<h4 class="food-name">Nero D'Avola</h4>
+							<p class="food-ingred">Purato, Sicily '13</p>
 							<p class="food-price"></p>
 					
 					 </li>
                     
-                    <li class="food-item">
-							<h4 class="food-name">Viogn. / Mars / Gren</h4>
-							<p class="food-ingred">Tablas Creek, Paso Robles '12                                       </p>
+                   <li class="food-item">
+							<h4 class="food-name">Garnacha</h4>
+							<p class="food-ingred">Camino de Navaherreros, Madrid '12</p>
+							<p class="food-price"></p>
+					
+					 </li>
+					 
+					 <li class="food-item">
+							<h4 class="food-name">Claret</h4>
+							<p class="food-ingred">Steltzar, Napa '12</p>
+							<p class="food-price"></p>
+					
+					 </li>
+					 
+					 <li class="food-item">
+							<h4 class="food-name">Monastrell / Syrah</h4>
+							<p class="food-ingred">Campos de Risca, Jumilla '11</p>
 							<p class="food-price"></p>
 					
 					 </li>
@@ -1285,24 +1373,37 @@ body {
             <ul class="food-list columns six offset-by-two">
 					
 					<li class="food-item">
-							<h4 class="food-name">Sauvignon Blanc J.</h4>
-							<p class="food-ingred">Claude Dagueneau, Pouilly Fume                                        '12</p>
+							<h4 class="food-name">Tempranillo</h4>
+							<p class="food-ingred">La Emperatriz, Rioja '08</p>
 							<p class="food-price"></p>
 					
 					 </li>
                 
                 <li class="food-item">
-							<h4 class="food-name">Sauvignon Blanc</h4>
-							<p class="food-ingred">Movia, Slovenia '11</p>
+							<h4 class="food-name">Carmenere</h4>
+							<p class="food-ingred">Laura Hartwig, Colchagua '10</p>
 							<p class="food-price"></p>
 					
 					 </li>
                 
                 
                 <li class="food-item">
-							<h4 class="food-name">Chardonnay</h4>
-							<p class="food-ingred">Vincent Morey, Chassagne- 
-                                Montrachet '12</p>
+							<h4 class="food-name">Merlot</h4>
+							<p class="food-ingred">Freemark Abbey, Napa '11</p>
+							<p class="food-price"></p>
+					
+					 </li>
+					 
+					 <li class="food-item">
+							<h4 class="food-name">Merlot / Canernet</h4>
+							<p class="food-ingred">Black Ankle, Mt. Airy '11</p>
+							<p class="food-price"></p>
+					
+					 </li>
+					 
+					 <li class="food-item">
+							<h4 class="food-name">Cabernet / Cinsault</h4>
+							<p class="food-ingred">Chateau Musar, Bekaa Valley '05</p>
 							<p class="food-price"></p>
 					
 					 </li>
@@ -1315,6 +1416,7 @@ body {
 <!--9th menu-->            
 			</div>
 	     </div>
+   
     </div>
   
   
