@@ -42,6 +42,7 @@ body {
     margin-top: 15px;
     width: 100%;
     height: 110px;
+    padding-bottom: 10px
 }
         
 #title {
@@ -49,7 +50,6 @@ body {
     line-height: 30px;
     color: #ffffff;
     font-size: 25px;
-    padding-top: 30px
 }
             
 #img {
@@ -113,7 +113,7 @@ body {
   
 .times {
     font-family: 'Ubuntu Condensed', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 1px;
   }
   
@@ -177,25 +177,46 @@ body {
  
 
 .side {
-	position: absolute;
+	/*position: absolute;
 	margin-top: 200px;
-	left: -150px;
+	left: -170px;*/
+	width: 160px;
+	position: fixed;
+	top: 0;
+	left: 0;
 }
 
 .sidenav {
 	font-family: 'Oswald', sans-serif;
 	color: #fff;
-	
 	letter-spacing: 2px;
 }
 
 .side-menu {
-	font-family: 'Oswald', sans-serif;
-	font-size: 4px;
-	letter-spacing: 2px;
-	color: #fff;
+	list-style: none;
 }
 
+.side-menu li {
+	font-family: 'Oswald', sans-serif;
+	font-size: 12px;
+	letter-spacing: 2px;
+	color: #fff;
+	margin-left: 0;
+	margin-top: 20px;
+	
+	
+}
+
+.logo {
+	background:url(img/parts-logo.png) top left no-repeat;
+	width: 63px;
+	height: 110px;
+	display: inline-block;
+	padding-left: 80px;
+	padding-top: 30px;
+	color: #fff;
+	text-decoration: none;
+}
 
 
 
@@ -222,8 +243,8 @@ body {
     <div id="header">
         <div class="container">
             <div id="title">
-                PARTS&amp;<br>
-                LABOR
+            	<a class="logo" href="#">PARTS&amp;<br>
+                LABOR</a>
             </div>
             
             <div id="slogan">
@@ -268,7 +289,7 @@ body {
         		<h2>BUTCHER HOURS</h2>
         		<div class="times">
         		
-        		<p>Mon-Sun: 11am - 7pm</p>
+        		<p>Mon - Sun: 11AM - 7PM</p>
         		
         		</div>
         		
@@ -277,8 +298,9 @@ body {
         
 			<ul class="restaurant columns four">
 				<h2>RESTAURANT HOURS</h2>
-				<p>Sun-Thurs: 5pm - 10pm<br>
-					Fri-Sat: 5pm - 11pm
+				<div class="times">
+				<p>Sun - Thurs: 5PM - 10PM<br>
+					Fri - Sat: 5PM - 11PM
 			
 			</ul>
         
@@ -288,41 +310,41 @@ body {
      <!--sidebar navigation -->
     
     <div class="side">
-    	<div class="sidenav columns three">
+    	<div class="sidenav columns three" style="float: none;">
     	<h2>DINNER</h2>
 		
-    		<ul classs="side-menu">
+    		<ul class="side-menu">
     		
-    		BEER SNACKS<br><br>
-    		FROM THE SALT HOUSE<br><br>
-    		SALADS<br><br>
-    		DRY-AGED BUTCHER'S CUTS<br><br>
-    		SANDWICHES<br><br>
-    		VARIETIES<br><br>
-    		SAUSAGES<br><br>
-    		HEARTH VEGETABLES<br><br>
-    		ON THE SIDE<br><br>
+    		<li>BEER SNACKS</li>
+    		<li>FROM THE SALT HOUSE</li>
+    		<li>SALADS</li>
+    		<li>DRY-AGED BUTCHER'S CUTS</li>
+    		<li>SANDWICHES</li>
+    		<li>VARIETIES</li>
+    		<li>SAUSAGES</li>
+    		<li>HEARTH VEGETABLES</li>
+    		<li>ON THE SIDE</li>
     		
     		</ul>
-    		
-    		
-    		<div class="sidenav columns three">
+    			
+    	</div>
+    	
+    	<div class="sidenav columns three">
     	<h2>BEER</h2>
 		
-    		<ul classs="side-menu">
+    		<ul class="side-menu">
     		
-    		BEER<br><br>
-    		FARM BEER<br><br>
-    		CIDER<br><br>
-    		LIBATIONS<br><br>
-    		TEETOTALERS<br><br>
-    		WINES ON DRAUGHT<br><br>
-    		WHITE BY THE BOTTLE<br><br>
-    		RED BY THE BOTTLE<br><br>
+    		<li>BEER</li>
+    		<li>FARM BEER</li>
+    		<li>CIDER</li>
+    		<li>LIBATIONS</li>
+    		<li>TEETOTALERS</li>
+    		<li>WINES ON DRAUGHT</li>
+    		<li>WHITE BY THE BOTTLE</li>
+    		<li>RED BY THE BOTTLE</li>
     		
     		</ul>
     		
-    		</div>	
     	</div>
     </div>
  
