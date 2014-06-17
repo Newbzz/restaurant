@@ -28,6 +28,7 @@
     <!-- optional type and form styling
         <link rel="stylesheet" href="css/base.css"> -->
     <link href="css/skeleton.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/flexslider.css">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     <style type="text/css">
     
@@ -128,7 +129,9 @@ body {
     left: 25%;
     position: absolute;
   }
-        
+.menu {
+	float: right !important;
+}        
 .menu-title {
     
     letter-spacing: 4px;
@@ -143,7 +146,7 @@ body {
     }
       
 .food-list {
-    padding: 20px;
+    padding: 0;
 }    
         
 .food-item {
@@ -184,13 +187,22 @@ body {
 	/*position: absolute;
 	margin-top: 200px;
 	left: -170px;*/
-	width: 160px;
+	display: none;
+	position: relative;
+	z-index: 1051;
+	width: 97%;
 	position: fixed;
 	top: 0;
 	left: 10px;
 }
 
+.modal-open .side {
+	display: block;
+}
+
 .sidenav {
+	float: none !important;
+	display: block !important;
 	font-family: 'Oswald', sans-serif;
 	color: #fff;
 	letter-spacing: 2px;
@@ -260,9 +272,156 @@ a:visited {
 } 
  
  
-     
+.about {
+	position: relative;
+	background-color: #3d4042;
+    width: 200%;
+    height: 110px;
+    z-index: 1060;
+    margin-left: -130px;
+}
+
+
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .8;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  filter: alpha(opacity=50);
+  opacity: .5;
+}
+button.close {
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+}
+.modal-open {
+  overflow: hidden;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  overflow: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+.modal.fade .modal-dialog {
+  -webkit-transition: -webkit-transform .3s ease-out;
+     -moz-transition:    -moz-transform .3s ease-out;
+       -o-transition:      -o-transform .3s ease-out;
+          transition:         transform .3s ease-out;
+  -webkit-transform: translate(0, -25%);
+      -ms-transform: translate(0, -25%);
+          transform: translate(0, -25%);
+}
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+.modal-content {
+  position: relative;
+  background-clip: padding-box;
+  outline: none;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+}
+.modal-backdrop.fade {
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.modal-backdrop.in {
+  filter: alpha(opacity=50);
+  opacity: .8;
+}
+.modal-header {
+  min-height: 16.42857143px;
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.modal-header .close {
+  margin-top: -2px;
+}
+.modal-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+.modal-body {
+  position: relative;
+  padding: 20px;
+}
+.modal-footer {
+  padding: 19px 20px 20px;
+  margin-top: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+.modal-footer .btn + .btn {
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+.modal-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+.modal-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 960px;
+    margin: 30px auto;
+  }
+ .modal-sm {
+    width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 900px;
+  }
+}     
+
+.about-title {
+	font-family: 'Oswald', sans-serif;
+	font-size: 23px;
+}
         
-        
+.slide-text {
+	font-family: 'Ubuntu Condensed', sans-serif;
+	color: #fff;
+	width: 50%;
+	
+}        
         
     </style>
 </head>
@@ -287,8 +446,6 @@ a:visited {
 				        </div>
     </div>
     
-   
-    
     
 
     <div id="img"><img alt="restaurant" src="rest.jpg"></div>
@@ -297,13 +454,11 @@ a:visited {
         <div class="container">
             <nav class="masthead-nav">
                 <ul class="nav">
-                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#about-modal" data-backdrop="static">ABOUT</a></li>
 
-                    <li><a href="#">MENU</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#menu-modal" data-backdrop="static">MENU</a></li>
 
-                    <li><a href="#">LOCATION</a></li>
-
-                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="#">RESERVATIONS</a></li>
                 </ul>
             </nav>
             
@@ -337,47 +492,104 @@ a:visited {
         
         </div>
      
-   
+     
+     <!--about-->
+     
+     <div class="modal" id="about-modal">
+     
+    <div class="modal-dialog">
+    <div class="modal-content">
+    
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+     
+     <div class="about clearfix">
+     	
+     	<div class="flexslider eleven columns">
+			<ul class="slides">
+				<li>
+					<img src="img/slide-1.jpg" alt="">
+				</li>
+				<li>	
+					<img src="img/slide-2.jpg" alt="">
+				</li>
+				<li>	
+					<img src="img/slide-3.jpg" alt="">
+				</li>
+				<li>	
+					<img src="img/slide-4.jpg" alt="">
+				</li>
+				<li>	
+					<img src="img/slide-5.jpg" alt="">
+				</li>
+					
+			</ul>
+		</div>
+		<div class="slide-text five columns">
+						<div class="about-title">WORDS FROM PARTS & LABOR</div><br><br>
+						
+						Parts & Labor, from the team behind Woodberry Kitchen, located in the Remington in an old automotive garage, 
+						continues the relationship with Chesapeake Bay growers focusing on pastured meats cooked in an open hearth.
+						We pour 24 beers on tap with a focus on supporting small farm breweries in Maryland. Along Howard Street in
+						this space we have a full retail butcher shop selling fresh cuts, sausages, cured meats, and Woodberry Pantry
+						preserves, and staffed with a full butcher team to help make selections.
+				</div>
+	 </div>
+    </div>
+    </div>
+     </div>
+     
      <!--sidebar navigation -->
     
     <div class="side" id="side-menu">
-    	<div class="sidenav columns three" id="dinner-menu" style="float: none;">
-    	<h2>DINNER</h2>
-			<nav class="sidebar-navigation">
-    		<ul class="side-menu">
-    		
-    		<li><a href="#beer-snacks">BEER SNACKS</a></li>
-    		<li><a href="#from-the-salt">FROM THE SALT HOUSE</a></li>
-    		<li><a href="#salads">SALADS</a></li>
-    		<li><a href="#dry-aged">DRY-AGED BUTCHER'S CUTS</a></li>
-    		<li><a href="#sandwiches">SANDWICHES</a></li>
-    		<li><a href="#varieties">VARIETIES</a></li>
-    		<li><a href="#sausages">SAUSAGES</a></li>
-    		<li><a href="#hearth">HEARTH VEGETABLES</a></li>
-    		<li><a href="#on-the-side">ON THE SIDE</a></li>
-    		
-    		</ul>
-			</nav>	
-    	</div>
-    	
-    	<div class="sidenav columns three" id="drink-menu">
-    	<h2>BEER</h2>
-			<nav class="sidebar-navigation">
-    		<ul class="side-menu">
-    		
-    		<li><a href="#beer">BEER</a></li>
-    		<li><a href="#farm-beer">FARM BEER</a></li>
-    		<li><a href="#cider">CIDER</a></li>
-    		<li><a href="#libations">LIBATIONS</a></li>
-    		<li><a href="#teetotalers">TEETOTALERS</a></li>
-    		<li><a href="#wines">WINES ON DRAUGHT</a></li>
-    		<li><a href="#white-by">WHITE BY THE BOTTLE</a></li>
-    		<li><a href="#red-by">RED BY THE BOTTLE</a></li>
-    		
-    		</ul>
-			</nav>
+    	<div class="container">
+    		<div class="sidenav columns three" id="dinner-menu">
+		    	<h2>DINNER</h2>
+					<nav class="sidebar-navigation">
+		    		<ul class="side-menu">
+		    		
+		    		<li><a href="#beer-snacks">BEER SNACKS</a></li>
+		    		<li><a href="#from-the-salt">FROM THE SALT HOUSE</a></li>
+		    		<li><a href="#salads">SALADS</a></li>
+		    		<li><a href="#dry-aged">DRY-AGED BUTCHER'S CUTS</a></li>
+		    		<li><a href="#sandwiches">SANDWICHES</a></li>
+		    		<li><a href="#varieties">VARIETIES</a></li>
+		    		<li><a href="#sausages">SAUSAGES</a></li>
+		    		<li><a href="#hearth">HEARTH VEGETABLES</a></li>
+		    		<li><a href="#on-the-side">ON THE SIDE</a></li>
+		    		
+		    		</ul>
+					</nav>	
+		    	</div>
+		    	
+		    	<div class="sidenav columns three" id="drink-menu">
+		    	<h2>BEER</h2>
+					<nav class="sidebar-navigation">
+		    		<ul class="side-menu">
+		    		
+		    		<li><a href="#beer">BEER</a></li>
+		    		<li><a href="#farm-beer">FARM BEER</a></li>
+		    		<li><a href="#cider">CIDER</a></li>
+		    		<li><a href="#libations">LIBATIONS</a></li>
+		    		<li><a href="#teetotalers">TEETOTALERS</a></li>
+		    		<li><a href="#wines">WINES ON DRAUGHT</a></li>
+		    		<li><a href="#white-by">WHITE BY THE BOTTLE</a></li>
+		    		<li><a href="#red-by">RED BY THE BOTTLE</a></li>
+		    		
+		    		</ul>
+					</nav>
+		    	</div>
     	</div>
     </div>
+    
+     <div class="modal" id="menu-modal">
+     
+    <div class="modal-dialog">
+    <div class="modal-content">
+    
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    
+   
+     
  
     
     
@@ -385,13 +597,13 @@ a:visited {
 		    <!-- menu stuff -->
 		    
 		    
-		    <div class="menu">
+		    <div class="menu columns thirteen">
 			    <div class="menu-title" id="beer-snacks">
 				    <h2>BEER SNACKS</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Pickled Eggs</h4>
@@ -419,7 +631,7 @@ a:visited {
 				</ul>
 				
 				
-				<ul class="food-list columns six offset-by-two">
+				<ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Boar Snack Sticks</h4>
@@ -444,13 +656,13 @@ a:visited {
 <!-- 2nd menu -->
 					
 				
-				<div class="menu">
+				<div class="menu columns thirteen">
 			    <div class="menu-title" id="from-the-salt">
 				    <h2>FROM THE SALT HOUSE</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Mortadella</h4>
@@ -485,7 +697,7 @@ a:visited {
 				</ul>
 				
 				
-				<ul class="food-list columns six offset-by-two">
+				<ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Full Butcher's Board</h4>
@@ -509,13 +721,13 @@ a:visited {
 <!-- 3rd menu -->					
 					
 				
-            <div class="menu">
+            <div class="menu columns thirteen">
 			    <div class="menu-title" id="salads">
 				    <h2>SALADS</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Spring Lettuces</h4>
@@ -539,7 +751,7 @@ a:visited {
 				</ul>
 				
 				
-				<ul class="food-list columns six offset-by-two">
+				<ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Young Kale</h4>
@@ -562,13 +774,13 @@ a:visited {
             
 <!-- 4th menu -->
             
-             <div class="menu">
+             <div class="menu columns thirteen">
 			    <div class="menu-title" id="dry-aged">
 				    <h2>DRY-AGED BUTCHER'S CUTS</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Culotte</h4>
@@ -595,7 +807,7 @@ a:visited {
 				</ul>
             
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Tri-Tip</h4>
@@ -628,13 +840,13 @@ a:visited {
             
             
             
-            <div class="menu">
+            <div class="menu columns thirteen">
 			    <div class="menu-title" id="sandwiches">
 				    <h2>SANDWICHES</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">P&L Dry-Aged Burger</h4>
@@ -653,7 +865,7 @@ a:visited {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Sticky Pork Chop Sandwich</h4>
@@ -671,13 +883,13 @@ a:visited {
 <!-- 6th menu-->
             
             
-            <div class="menu">
+            <div class="menu columns thirteen">
 			    <div class="menu-title" id="varieties">
 				    <h2>VARIETIES</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Pride & Joy</h4>
@@ -705,7 +917,7 @@ a:visited {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Pork Belly</h4>
@@ -739,13 +951,13 @@ a:visited {
 <!-- 7th menu-->
             
             
-            <div class="menu">
+            <div class="menu columns thirteen">
 			    <div class="menu-title" id="sausages">
 				    <h2>SAUSAGES</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Wiesswurst</h4>
@@ -765,7 +977,7 @@ a:visited {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Maple Kielbasa</h4>
@@ -788,13 +1000,13 @@ a:visited {
 <!-- 8th menu-->
             
             
-            <div class="menu">
+            <div class="menu columns thirteen">
 			    <div class="menu-title" id="hearth">
 				    <h2>HEARTH VEGETABLES</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Griddled Potatoes</h4>
@@ -821,7 +1033,7 @@ a:visited {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Sweet Potatoes</h4>
@@ -852,13 +1064,13 @@ a:visited {
             
             
             
-            <div class="menu">
+            <div class="menu columns thirteen">
 			    <div class="menu-title" id="on-the-side">
 				    <h2>ON THE SIDE</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Potato Salad</h4>
@@ -887,7 +1099,7 @@ a:visited {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Cole Slaw</h4>
@@ -912,13 +1124,13 @@ a:visited {
             
          
             
-    <div class="menu">
+    <div class="menu columns thirteen">
 			    <div class="menu-title" id="beer">
 				    <h2>BEER</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Made Wit Basil</h4>
@@ -997,7 +1209,7 @@ a:visited {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Stateside</h4>
@@ -1076,14 +1288,14 @@ a:visited {
     <!--2nd menu-->        
             
             
-    <div class="menu">
+    <div class="menu columns thirteen">
 			    <div class="menu-title" id="farm-beer">
 				    <h2>FARM BEER</h2>
                     <h5>HIGHLIGHTS THE REGION BY THE GLASS</h5>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">P.P.P. Draught</h4>
@@ -1096,7 +1308,7 @@ a:visited {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Whack Truck McDonkey</h4>
@@ -1111,13 +1323,13 @@ a:visited {
             
 <!--3rd menu-->
             
-       <div class="menu">
+       <div class="menu columns thirteen">
 			    <div class="menu-title" id="cider">
 				    <h2>Cider</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Cherrykreik Draught</h4>
@@ -1130,7 +1342,7 @@ a:visited {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Thistle</h4>
@@ -1149,13 +1361,13 @@ a:visited {
 <!--4th menu-->            
             
 
- <div class="menu">
+ <div class="menu columns thirteen">
 			    <div class="menu-title" id="libations">
 				    <h2>LIBATIONS</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Hop Tonic</h4>
@@ -1191,7 +1403,7 @@ a:visited {
                     </ul>
             
             
-        <ul class="food-list columns six offset-by-two">
+        <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Tewpac</h4>
@@ -1222,13 +1434,13 @@ a:visited {
             
 <!--5th menu-->  
     
-      <div class="menu">
+      <div class="menu columns thirteen">
 			    <div class="menu-title" id="teetotalers">
 				    <h2>TEETOTALERS</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Soda Pop</h4>
@@ -1248,7 +1460,7 @@ a:visited {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Nectar</h4>
@@ -1267,13 +1479,13 @@ a:visited {
             
 <!--6th menu--> 
             
-    <div class="menu">
+    <div class="menu columns thirteen">
 			    <div class="menu-title" id="wines">
 				    <h2>WINES ON DRAUGHT</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Rhone-Style Blend</h4>
@@ -1292,7 +1504,7 @@ a:visited {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Vidal / Pinot Gris</h4>
@@ -1315,13 +1527,13 @@ a:visited {
             
 <!--7th menu-->
        
-       <div class="menu">
+       <div class="menu columns thirteen">
 			    <div class="menu-title" id="white-by">
 				    <h2>WHITE BY THE BOTTLE</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Chenin Blanc (Sparkling</h4>
@@ -1346,7 +1558,7 @@ a:visited {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Sauvignon Blanc J.</h4>
@@ -1378,13 +1590,13 @@ a:visited {
 <!--8th menu-->            
 
      
- <div class="menu">
+ <div class="menu columns thirteen">
 			    <div class="menu-title" id="red-by">
 				    <h2>RED BY THE BOTTLE</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Sangiovese</h4>
@@ -1423,7 +1635,7 @@ a:visited {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Tempranillo</h4>
@@ -1464,7 +1676,9 @@ a:visited {
 					 
 				</ul>
             </div>              
-            
+     </div> 
+    </div>
+     </div>
             
 <!--9th menu-->            
 			</div>
@@ -1498,46 +1712,68 @@ a:visited {
 <script src="js/vendor/jquery.localScroll.min.js"></script>
 <script src="js/vendor/waypoints.min.js"></script>
 		<script src="js/vendor/waypoints-sticky.min.js"></script>
+		<script src="js/vendor/modal.js"></script>
+		<script src="js/vendor/jquery.flexslider-min.js"></script>
+		
+ 
+ 
  
  
  <!--added java -->   
+    
+    
     
     
 		<script>
 			$(function (){
 				$('.sidebar-navigation').localScroll({
 					axis: 'y',
-					hash: true,
+					hash: false,
 					duration: 1000,
+					target: '#menu-modal'
 				});
 				
 				// Show/hide menu based on scroll location
 				
-				$('#side-menu, .sidebar-navigation').hide();
 				
+				/*
 				$('#beer-snacks').waypoint(function (direction) {
 					if (direction === 'down') {
-						$('#side-menu, #dinner-menu .sidebar-navigation').show();
+						$('#dinner-menu .sidebar-navigation').show();
 						$('#drink-menu .sidebar-navigation').hide();
 					} else {
 						$('#dinner-menu .sidebar-navigation').hide();
-						$('#side-menu, #drink-menu .sidebar-navigation').hide();
+						$('#drink-menu .sidebar-navigation').hide();
 					}
 				});
 				
 				$('#beer').waypoint(function (direction) {
 					if (direction === 'down') {
 						$('#dinner-menu .sidebar-navigation').hide();
-						$('#side-menu, #drink-menu .sidebar-navigation').show();
+						$('#drink-menu .sidebar-navigation').show();
 					} else {
-						$('#side-menu, #dinner-menu .sidebar-navigation').show();
+						$('#dinner-menu .sidebar-navigation').show();
 						$('#drink-menu .sidebar-navigation').hide();
 					}
 				});
+				*/
 			});
 		</script>
     
-    
+    <script>
+			$(function () {
+				$('.flexslider').flexslider({
+				animation: 'slide',
+				slideshowSpeed: 2000,
+				animationSpeed: 1000,
+				pauseOnHover: true,
+				
+				});
+				
+			});
+			
+			
+		</script>
     
     
 </body>
