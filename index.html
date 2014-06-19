@@ -208,9 +208,44 @@ body {
 	letter-spacing: 2px;
 }
 
-.side-menu {
-	list-style: none;
+@media only screen and (min-width: 700px) and (max-width: 950px) {
+		#butcher-main, #restaurant-main {
+			float: none;
+			margin: 0;
+		}
+}
+
+@media only screen and (min-width: 0px) and (max-width: 700px) {
+	#side-menu {
+		display: none;
+	}
+	#butcher-main, #restaurant-main {
+		float: none;
+		margin: 0;
+	}
+	.masthead-nav .nav {
+		margin-left: 0;
+		text-align: center;
+	}
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+	.container #slogan {
+		display: none;
+	}
+}
+
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+	.masthead-nav .nav li:first-child {
+		margin-left: 0;
+	}
+	.masthead-nav .nav li:last-child {
+		margin-left: 0;
+	}
 	
+	.side-menu {
+		list-style: none;
+	}
 }
 
 a:link  {
@@ -496,7 +531,7 @@ button.close {
         
         <div class="hours">
         
-        	<ul class="butcher columns four ">
+        	<ul id="butcher-main" class="butcher columns four">
         		<h2>BUTCHER HOURS</h2>
         		<div class="times">
         		
@@ -506,8 +541,7 @@ button.close {
         		
         		
         	</ul>
-        
-			<ul class="restaurant columns four">
+			<ul id="restaurant-main" class="restaurant columns four">
 				<h2>RESTAURANT HOURS</h2>
 				<div class="times">
 				<p>Sun - Thurs: 5PM - 10PM<br>
