@@ -273,12 +273,15 @@ a:visited {
  
  
 .about {
-	position: relative;
-	background-color: #3d4042;
+	/*
+position: relative;
+	
     width: 200%;
     height: 110px;
-    z-index: 1060;
     margin-left: -130px;
+*/
+    
+    /* background-color: #3d4042; */
 }
 
 
@@ -401,8 +404,10 @@ button.close {
     width: 960px;
     margin: 30px auto;
   }
- .modal-sm {
-    width: 300px;
+
+.modal-sm {
+    width: 500px;
+    
   }
 }
 @media (min-width: 992px) {
@@ -421,7 +426,27 @@ button.close {
 	color: #fff;
 	width: 50%;
 	
-}        
+} 
+
+.submitButton {
+	font-family: 'Oswald', sans-serif;
+	font-size: 13px;
+	letter-spacing: 2px;
+	color: #fff;
+	background-color: #494c4e;
+	border-radius: 3px; 
+	border: none;
+}
+
+.time {
+	font-family: 'Oswald', sans-serif;
+	font-size: 13px;
+	letter-spacing: 2px;
+	color: #fff;
+	background-color: #494c4e;
+	border-radius: 3px; 
+	border: none;
+}      
         
     </style>
 </head>
@@ -458,7 +483,7 @@ button.close {
 
                     <li><a href="#" data-toggle="modal" data-target="#menu-modal" data-backdrop="static">MENU</a></li>
 
-                    <li><a href="#">RESERVATIONS</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#reservation-modal" data-backdrop="static">RESERVATIONS</a></li>
                 </ul>
             </nav>
             
@@ -496,35 +521,31 @@ button.close {
      <!--about-->
      
      <div class="modal" id="about-modal">
-     
-    <div class="modal-dialog">
-    <div class="modal-content">
-    
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-     
-     <div class="about clearfix">
-     	
-     	<div class="flexslider eleven columns">
-			<ul class="slides">
-				<li>
-					<img src="img/slide-1.jpg" alt="">
-				</li>
-				<li>	
-					<img src="img/slide-2.jpg" alt="">
-				</li>
-				<li>	
-					<img src="img/slide-3.jpg" alt="">
-				</li>
-				<li>	
-					<img src="img/slide-4.jpg" alt="">
-				</li>
-				<li>	
-					<img src="img/slide-5.jpg" alt="">
-				</li>
+	 	<div class="modal-dialog">
+			<div class="modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<div class="about clearfix">
+					<div class="eleven columns">
+						<div class="flexslider"><ul class="slides">
+							<li>
+								<img src="img/slide-1.jpg" alt="">
+							</li>
+							<li>	
+								<img src="img/slide-2.jpg" alt="">
+							</li>
+							<li>	
+								<img src="img/slide-3.jpg" alt="">
+							</li>
+							<li>	
+								<img src="img/slide-4.jpg" alt="">
+							</li>
+							<li>	
+								<img src="img/slide-5.jpg" alt="">
+							</li>
 					
-			</ul>
-		</div>
-		<div class="slide-text five columns">
+						</ul></div>
+					</div>
+					<div class="slide-text five columns">
 						<div class="about-title">WORDS FROM PARTS & LABOR</div><br><br>
 						
 						Parts & Labor, from the team behind Woodberry Kitchen, located in the Remington in an old automotive garage, 
@@ -532,15 +553,72 @@ button.close {
 						We pour 24 beers on tap with a focus on supporting small farm breweries in Maryland. Along Howard Street in
 						this space we have a full retail butcher shop selling fresh cuts, sausages, cured meats, and Woodberry Pantry
 						preserves, and staffed with a full butcher team to help make selections.
+					</div>
 				</div>
-	 </div>
-    </div>
-    </div>
+			</div>
+		</div>
      </div>
+     
+     
+     <!-- resevations-->
+     
+     <div class="modal" id="reservation-modal">
+	 	<div class="modal-dialog modal-sm">
+		 	
+
+			<div class="modal-content">
+				<div class="row">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>	
+				
+				<input type="text" placeholder="MM/DD/YY" value="" name="date">
+
+				<select name="time">
+					<option selected disabled>Select a Time</option>
+					<option>5:00pm</option>
+					<option>5:15pm</option>
+					<option>5:30pm</option>
+					<option>5:45pm</option>
+					<option>6:00pm</option>
+					<option>6:15pm</option>
+					<option>6:30pm</option>
+					<option>6:45pm</option>
+					<option>7:00pm</option>
+					<option>7:15pm</option>
+					<option>7:30pm</option>
+					<option>7:45pm</option>
+					<option>8:00pm</option>
+					<option>8:15pm</option>
+					<option>8:30pm</option>
+					<option>8:45pm</option>
+					<option>8:00pm</option>
+					<option>9:15pm</option>
+					<option>9:30pm</option>
+					<option>9:45pm</option>
+					<option>10:00pm</option>
+					<option>10:15pm</option>
+					<option>10:30pm</option>
+				</select>
+
+				<input class="submitButton" type="submit" value="FIND A TABLE">
+					
+					
+			</div>
+	 	</div>
+     </div>	
+
+     
+     
      
      <!--sidebar navigation -->
     
-    <div class="side" id="side-menu">
+ 
+    
+     <div class="modal" id="menu-modal">
+     	<div class="container" style="z-index: 1052">
+     		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+     	</div>
+        <div class="side" id="side-menu">
     	<div class="container">
     		<div class="sidenav columns three" id="dinner-menu">
 		    	<h2>DINNER</h2>
@@ -580,13 +658,11 @@ button.close {
 		    	</div>
     	</div>
     </div>
-    
-     <div class="modal" id="menu-modal">
      
     <div class="modal-dialog">
     <div class="modal-content">
     
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    
     
    
      
@@ -1291,7 +1367,7 @@ button.close {
     <div class="menu columns thirteen">
 			    <div class="menu-title" id="farm-beer">
 				    <h2>FARM BEER</h2>
-                    <h5>HIGHLIGHTS THE REGION BY THE GLASS</h5>
+                    <h6>HIGHLIGHTS THE REGION BY THE GLASS</h6>
 			    </div>
 		  
 				
@@ -1691,8 +1767,21 @@ button.close {
   
 
 		
-		
-    
+<!--
+	Form Code for Reservations
+
+
+<input type="text" placeholder="MM/DD/YY" value="" name="date">
+
+<select name="time">
+	<option selected disabled>Select a Time</option>
+	<option>5:00pm</option>
+	<option>5:30pm</option>
+</select>
+
+<input class="submitButton" type="submit" value="Find a Table">
+ 
+ -->  
     
     
     
@@ -1762,14 +1851,14 @@ button.close {
     
     <script>
 			$(function () {
-				$('.flexslider').flexslider({
-				animation: 'slide',
-				slideshowSpeed: 2000,
-				animationSpeed: 1000,
-				pauseOnHover: true,
-				
+				$('#about-modal').on('shown.bs.modal', function (e) {
+					$('.flexslider').flexslider({
+						animation: 'slide',
+						slideshowSpeed: 2000,
+						animationSpeed: 1000,
+						pauseOnHover: true,					
+					});
 				});
-				
 			});
 			
 			
