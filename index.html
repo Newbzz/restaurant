@@ -28,6 +28,7 @@
     <!-- optional type and form styling
         <link rel="stylesheet" href="css/base.css"> -->
     <link href="css/skeleton.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/flexslider.css">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     <style type="text/css">
     
@@ -42,6 +43,7 @@ body {
     margin-top: 15px;
     width: 100%;
     height: 110px;
+    padding-bottom: 10px
 }
         
 #title {
@@ -49,7 +51,6 @@ body {
     line-height: 30px;
     color: #ffffff;
     font-size: 25px;
-    padding-top: 30px
 }
             
 #img {
@@ -88,9 +89,14 @@ body {
 .masthead-nav, .location {
     text-align: center;
 }
+
     
 .hours {
-	  
+	
+	width: 60%;
+	margin: 0 auto; 
+	text-align: center; 
+	margin-bottom: 200px;
 }  
   
 .location {
@@ -109,18 +115,23 @@ body {
   
 .times {
     font-family: 'Ubuntu Condensed', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 1px;
   }
   
 #slogan {
     font-family: 'Ubuntu Condensed', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     color: #fff;
     text-align: center;
     letter-spacing: .1em;
+    top: 90px;
+    left: 25%;
+    position: absolute;
   }
-        
+.menu {
+	float: right !important;
+}        
 .menu-title {
     
     letter-spacing: 4px;
@@ -135,7 +146,7 @@ body {
     }
       
 .food-list {
-    padding: 20px;
+    padding: 0;
 }    
         
 .food-item {
@@ -171,19 +182,306 @@ body {
 }
  
  
- 
- 
-.social-instagram {
-	background-image: url(instagram.png);
-	right: 10px;
-	z-index: 1000;
+
+.side {
+	/*position: absolute;
+	margin-top: 200px;
+	left: -170px;*/
+	display: none;
+	position: relative;
+	z-index: 1051;
+	width: 97%;
+	position: fixed;
+	top: 0;
+	left: 10px;
 }
+
+.modal-open .side {
+	display: block;
+}
+
+.sidenav {
+	float: none !important;
+	display: block !important;
+	font-family: 'Oswald', sans-serif;
+	color: #fff;
+	letter-spacing: 2px;
+}
+
+@media only screen and (min-width: 700px) and (max-width: 950px) {
+		#butcher-main, #restaurant-main {
+			float: none;
+			margin: 0;
+		}
+}
+
+@media only screen and (min-width: 0px) and (max-width: 700px) {
+	#side-menu {
+		display: none;
+	}
+	#butcher-main, #restaurant-main {
+		float: none;
+		margin: 0;
+	}
+	.masthead-nav .nav {
+		margin-left: 0;
+		text-align: center;
+	}
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+	.container #slogan {
+		display: none;
+	}
+}
+
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+	.masthead-nav .nav li:first-child {
+		margin-left: 0;
+	}
+	.masthead-nav .nav li:last-child {
+		margin-left: 0;
+	}
+	
+	.side-menu {
+		list-style: none;
+	}
+}
+
+a:link  {
+	color: #fff;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #fff;
+}
+
+.side-menu li {
+	font-family: 'Oswald', sans-serif;
+	font-size: 12px;
+	letter-spacing: 2px;
+	color: #fff;
+	margin-left: 0;
+	margin-top: 20px;
+	
+	
+}
+
+.logo {
+	background:url(img/parts-logo.png) top left no-repeat;
+	width: 63px;
+	height: 110px;
+	display: inline-block;
+	padding-left: 80px;
+	padding-top: 30px;
+	color: #fff;
+	text-decoration: none;
+}
+
+.instagram {
+	position: absolute;
+	background:url(img/instagram.png) top right no-repeat;
+	width: 30px;
+	height: 30px;
+	top: 5px;
+	right: 15px;
+}
+
+.facebook {
+	position: absolute;
+	background:url(img/facebook.png) top right no-repeat;
+	width: 30px;
+	height: 30px;
+	top: 5px;
+	right: -20px;
+}
+
+.twitter {
+	position: absolute;
+	background: url(img/twitter.png) top right no-repeat;
+	width: 30px;
+	height: 30px;
+	top: 7px;
+	right: -55px;
+} 
  
  
- 
-     
+.about {
+	/*
+position: relative;
+	
+    width: 200%;
+    height: 110px;
+    margin-left: -130px;
+*/
+    
+    /* background-color: #3d4042; */
+}
+
+
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .8;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  filter: alpha(opacity=50);
+  opacity: .5;
+}
+button.close {
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+}
+.modal-open {
+  overflow: hidden;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  overflow: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+.modal.fade .modal-dialog {
+  -webkit-transition: -webkit-transform .3s ease-out;
+     -moz-transition:    -moz-transform .3s ease-out;
+       -o-transition:      -o-transform .3s ease-out;
+          transition:         transform .3s ease-out;
+  -webkit-transform: translate(0, -25%);
+      -ms-transform: translate(0, -25%);
+          transform: translate(0, -25%);
+}
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+.modal-content {
+  position: relative;
+  background-clip: padding-box;
+  outline: none;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+}
+.modal-backdrop.fade {
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.modal-backdrop.in {
+  filter: alpha(opacity=50);
+  opacity: .8;
+}
+.modal-header {
+  min-height: 16.42857143px;
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.modal-header .close {
+  margin-top: -2px;
+}
+.modal-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+.modal-body {
+  position: relative;
+  padding: 20px;
+}
+.modal-footer {
+  padding: 19px 20px 20px;
+  margin-top: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+.modal-footer .btn + .btn {
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+.modal-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+.modal-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 960px;
+    margin: 30px auto;
+  }
+
+.modal-sm {
+    width: 500px;
+    
+  }
+}
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 900px;
+  }
+}     
+
+.about-title {
+	font-family: 'Oswald', sans-serif;
+	font-size: 23px;
+}
         
-        
+.slide-text {
+	font-family: 'Ubuntu Condensed', sans-serif;
+	color: #fff;
+	width: 50%;
+	
+} 
+
+.submitButton {
+	font-family: 'Oswald', sans-serif;
+	font-size: 13px;
+	letter-spacing: 2px;
+	color: #fff;
+	background-color: #494c4e;
+	border-radius: 3px; 
+	border: none;
+}
+
+.time {
+	font-family: 'Oswald', sans-serif;
+	font-size: 13px;
+	letter-spacing: 2px;
+	color: #fff;
+	background-color: #494c4e;
+	border-radius: 3px; 
+	border: none;
+}      
         
     </style>
 </head>
@@ -191,21 +489,22 @@ body {
 <body>
     <div id="header">
         <div class="container">
+            
+    
             <div id="title">
-                PARTS&amp;<br>
-                LABOR
+            	<a class="logo" href="#">PARTS&amp;<br>
+                LABOR</a>
             </div>
             
             <div id="slogan">
-                Restaurant serving the region's finest meats from the hearth and 20                     craft beers on tap.
-            
+                Restaurant serving the region's finest meats from the hearth and 20 craft beers on tap.
             </div>
-           
-        </div>
+				<a class="instagram" href="http://instagram.com/partslabor"></a>
+				<a class="twitter" href="http://twitter.com/partslabor"></a>
+				<a class="facebook" href="https://www.facebook.com/pages/Parts-Labor/669500293094417"></a>
+
+				        </div>
     </div>
-    
-    
-    
     
     
 
@@ -215,13 +514,11 @@ body {
         <div class="container">
             <nav class="masthead-nav">
                 <ul class="nav">
-                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#about-modal" data-backdrop="static">ABOUT</a></li>
 
-                    <li><a href="#">MENU</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#menu-modal" data-backdrop="static">MENU</a></li>
 
-                    <li><a href="#">LOCATION</a></li>
-
-                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#reservation-modal" data-backdrop="static">RESERVATIONS</a></li>
                 </ul>
             </nav>
             
@@ -234,37 +531,189 @@ body {
         
         <div class="hours">
         
-        	<div class="butcher">
+        	<ul id="butcher-main" class="butcher columns four">
         		<h2>BUTCHER HOURS</h2>
         		<div class="times">
         		
-        		<p>Mon-Sun: 11am - 7pm</p>
+        		<p>Mon - Sun: 11AM - 7PM</p>
         		
         		</div>
         		
         		
-        	</div>
-        
-			<div class="restaurant">
+        	</ul>
+			<ul id="restaurant-main" class="restaurant columns four">
 				<h2>RESTAURANT HOURS</h2>
-				<p>Sun-Thurs: 5pm - 10pm<br>
-					Fri-Sat: 5pm - 11pm
+				<div class="times">
+				<p>Sun - Thurs: 5PM - 10PM<br>
+					Fri - Sat: 5PM - 11PM
 			
-			</div>
+			</ul>
         
         </div>
      
+     
+     <!--about-->
+     
+     <div class="modal" id="about-modal">
+	 	<div class="modal-dialog">
+			<div class="modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<div class="about clearfix">
+					<div class="eleven columns">
+						<div class="flexslider"><ul class="slides">
+							<li>
+								<img src="img/slide-1.jpg" alt="">
+							</li>
+							<li>	
+								<img src="img/slide-2.jpg" alt="">
+							</li>
+							<li>	
+								<img src="img/slide-3.jpg" alt="">
+							</li>
+							<li>	
+								<img src="img/slide-4.jpg" alt="">
+							</li>
+							<li>	
+								<img src="img/slide-5.jpg" alt="">
+							</li>
+					
+						</ul></div>
+					</div>
+					<div class="slide-text five columns">
+						<div class="about-title">WORDS FROM PARTS & LABOR</div><br><br>
+						
+						Parts & Labor, from the team behind Woodberry Kitchen, located in the Remington in an old automotive garage, 
+						continues the relationship with Chesapeake Bay growers focusing on pastured meats cooked in an open hearth.
+						We pour 24 beers on tap with a focus on supporting small farm breweries in Maryland. Along Howard Street in
+						this space we have a full retail butcher shop selling fresh cuts, sausages, cured meats, and Woodberry Pantry
+						preserves, and staffed with a full butcher team to help make selections.
+					</div>
+				</div>
+			</div>
+		</div>
+     </div>
+     
+     
+     <!-- resevations-->
+     
+     <div class="modal" id="reservation-modal">
+	 	<div class="modal-dialog modal-sm">
+		 	
+
+			<div class="modal-content">
+				<div class="row">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>	
+				
+				<input type="text" placeholder="MM/DD/YY" value="" name="date">
+
+				<select name="time">
+					<option selected disabled>Select a Time</option>
+					<option>5:00pm</option>
+					<option>5:15pm</option>
+					<option>5:30pm</option>
+					<option>5:45pm</option>
+					<option>6:00pm</option>
+					<option>6:15pm</option>
+					<option>6:30pm</option>
+					<option>6:45pm</option>
+					<option>7:00pm</option>
+					<option>7:15pm</option>
+					<option>7:30pm</option>
+					<option>7:45pm</option>
+					<option>8:00pm</option>
+					<option>8:15pm</option>
+					<option>8:30pm</option>
+					<option>8:45pm</option>
+					<option>8:00pm</option>
+					<option>9:15pm</option>
+					<option>9:30pm</option>
+					<option>9:45pm</option>
+					<option>10:00pm</option>
+					<option>10:15pm</option>
+					<option>10:30pm</option>
+				</select>
+
+				<input class="submitButton" type="submit" value="FIND A TABLE">
+					
+					
+			</div>
+	 	</div>
+     </div>	
+
+     
+     
+     
+     <!--sidebar navigation -->
+    
+ 
+    
+     <div class="modal" id="menu-modal">
+     	<div class="container" style="z-index: 1052">
+     		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+     	</div>
+        <div class="side" id="side-menu">
+    	<div class="container">
+    		<div class="sidenav columns three" id="dinner-menu">
+		    	<h2>DINNER</h2>
+					<nav class="sidebar-navigation">
+		    		<ul class="side-menu">
+		    		
+		    		<li><a href="#beer-snacks">BEER SNACKS</a></li>
+		    		<li><a href="#from-the-salt">FROM THE SALT HOUSE</a></li>
+		    		<li><a href="#salads">SALADS</a></li>
+		    		<li><a href="#dry-aged">DRY-AGED BUTCHER'S CUTS</a></li>
+		    		<li><a href="#sandwiches">SANDWICHES</a></li>
+		    		<li><a href="#varieties">VARIETIES</a></li>
+		    		<li><a href="#sausages">SAUSAGES</a></li>
+		    		<li><a href="#hearth">HEARTH VEGETABLES</a></li>
+		    		<li><a href="#on-the-side">ON THE SIDE</a></li>
+		    		
+		    		</ul>
+					</nav>	
+		    	</div>
+		    	
+		    	<div class="sidenav columns three" id="drink-menu">
+		    	<h2>BEER</h2>
+					<nav class="sidebar-navigation">
+		    		<ul class="side-menu">
+		    		
+		    		<li><a href="#beer">BEER</a></li>
+		    		<li><a href="#farm-beer">FARM BEER</a></li>
+		    		<li><a href="#cider">CIDER</a></li>
+		    		<li><a href="#libations">LIBATIONS</a></li>
+		    		<li><a href="#teetotalers">TEETOTALERS</a></li>
+		    		<li><a href="#wines">WINES ON DRAUGHT</a></li>
+		    		<li><a href="#white-by">WHITE BY THE BOTTLE</a></li>
+		    		<li><a href="#red-by">RED BY THE BOTTLE</a></li>
+		    		
+		    		</ul>
+					</nav>
+		    	</div>
+    	</div>
+    </div>
+     
+    <div class="modal-dialog">
+    <div class="modal-content">
+    
+    
+    
+   
+     
+ 
+    
+    
     
 		    <!-- menu stuff -->
 		    
 		    
-		    <div class="menu">
-			    <div class="menu-title">
+		    <div class="menu columns thirteen">
+			    <div class="menu-title" id="beer-snacks">
 				    <h2>BEER SNACKS</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Pickled Eggs</h4>
@@ -292,7 +741,7 @@ body {
 				</ul>
 				
 				
-				<ul class="food-list columns six offset-by-two">
+				<ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Boar Snack Sticks</h4>
@@ -317,13 +766,13 @@ body {
 <!-- 2nd menu -->
 					
 				
-				<div class="menu">
-			    <div class="menu-title">
+				<div class="menu columns thirteen">
+			    <div class="menu-title" id="from-the-salt">
 				    <h2>FROM THE SALT HOUSE</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Mortadella</h4>
@@ -358,7 +807,7 @@ body {
 				</ul>
 				
 				
-				<ul class="food-list columns six offset-by-two">
+				<ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Full Butcher's Board</h4>
@@ -382,13 +831,13 @@ body {
 <!-- 3rd menu -->					
 					
 				
-            <div class="menu">
-			    <div class="menu-title">
+            <div class="menu columns thirteen">
+			    <div class="menu-title" id="salads">
 				    <h2>SALADS</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Spring Lettuces</h4>
@@ -412,7 +861,7 @@ body {
 				</ul>
 				
 				
-				<ul class="food-list columns six offset-by-two">
+				<ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Young Kale</h4>
@@ -435,13 +884,13 @@ body {
             
 <!-- 4th menu -->
             
-             <div class="menu">
-			    <div class="menu-title">
+             <div class="menu columns thirteen">
+			    <div class="menu-title" id="dry-aged">
 				    <h2>DRY-AGED BUTCHER'S CUTS</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Culotte</h4>
@@ -468,7 +917,7 @@ body {
 				</ul>
             
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Tri-Tip</h4>
@@ -501,13 +950,13 @@ body {
             
             
             
-            <div class="menu">
-			    <div class="menu-title">
+            <div class="menu columns thirteen">
+			    <div class="menu-title" id="sandwiches">
 				    <h2>SANDWICHES</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">P&L Dry-Aged Burger</h4>
@@ -526,7 +975,7 @@ body {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Sticky Pork Chop Sandwich</h4>
@@ -544,13 +993,13 @@ body {
 <!-- 6th menu-->
             
             
-            <div class="menu">
-			    <div class="menu-title">
+            <div class="menu columns thirteen">
+			    <div class="menu-title" id="varieties">
 				    <h2>VARIETIES</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Pride & Joy</h4>
@@ -578,7 +1027,7 @@ body {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Pork Belly</h4>
@@ -612,13 +1061,13 @@ body {
 <!-- 7th menu-->
             
             
-            <div class="menu">
-			    <div class="menu-title">
+            <div class="menu columns thirteen">
+			    <div class="menu-title" id="sausages">
 				    <h2>SAUSAGES</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Wiesswurst</h4>
@@ -638,7 +1087,7 @@ body {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Maple Kielbasa</h4>
@@ -661,13 +1110,13 @@ body {
 <!-- 8th menu-->
             
             
-            <div class="menu">
-			    <div class="menu-title">
+            <div class="menu columns thirteen">
+			    <div class="menu-title" id="hearth">
 				    <h2>HEARTH VEGETABLES</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Griddled Potatoes</h4>
@@ -694,7 +1143,7 @@ body {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Sweet Potatoes</h4>
@@ -725,13 +1174,13 @@ body {
             
             
             
-            <div class="menu">
-			    <div class="menu-title">
+            <div class="menu columns thirteen">
+			    <div class="menu-title" id="on-the-side">
 				    <h2>ON THE SIDE</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Potato Salad</h4>
@@ -760,7 +1209,7 @@ body {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Cole Slaw</h4>
@@ -785,13 +1234,13 @@ body {
             
          
             
-    <div class="menu">
-			    <div class="menu-title">
+    <div class="menu columns thirteen">
+			    <div class="menu-title" id="beer">
 				    <h2>BEER</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Made Wit Basil</h4>
@@ -870,7 +1319,7 @@ body {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Stateside</h4>
@@ -949,14 +1398,14 @@ body {
     <!--2nd menu-->        
             
             
-    <div class="menu">
-			    <div class="menu-title">
+    <div class="menu columns thirteen">
+			    <div class="menu-title" id="farm-beer">
 				    <h2>FARM BEER</h2>
-                    <h5>HIGHLIGHTS THE REGION BY THE GLASS</h5>
+                    <h6>HIGHLIGHTS THE REGION BY THE GLASS</h6>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">P.P.P. Draught</h4>
@@ -969,7 +1418,7 @@ body {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Whack Truck McDonkey</h4>
@@ -984,13 +1433,13 @@ body {
             
 <!--3rd menu-->
             
-       <div class="menu">
-			    <div class="menu-title">
+       <div class="menu columns thirteen">
+			    <div class="menu-title" id="cider">
 				    <h2>Cider</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Cherrykreik Draught</h4>
@@ -1003,7 +1452,7 @@ body {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Thistle</h4>
@@ -1022,13 +1471,13 @@ body {
 <!--4th menu-->            
             
 
- <div class="menu">
-			    <div class="menu-title">
+ <div class="menu columns thirteen">
+			    <div class="menu-title" id="libations">
 				    <h2>LIBATIONS</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Hop Tonic</h4>
@@ -1064,7 +1513,7 @@ body {
                     </ul>
             
             
-        <ul class="food-list columns six offset-by-two">
+        <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Tewpac</h4>
@@ -1095,13 +1544,13 @@ body {
             
 <!--5th menu-->  
     
-      <div class="menu">
-			    <div class="menu-title">
+      <div class="menu columns thirteen">
+			    <div class="menu-title" id="teetotalers">
 				    <h2>TEETOTALERS</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Soda Pop</h4>
@@ -1121,7 +1570,7 @@ body {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Nectar</h4>
@@ -1140,13 +1589,13 @@ body {
             
 <!--6th menu--> 
             
-    <div class="menu">
-			    <div class="menu-title">
+    <div class="menu columns thirteen">
+			    <div class="menu-title" id="wines">
 				    <h2>WINES ON DRAUGHT</h2>
 			    </div>
 		  
 				
-				<ul class="food-list columns six">
+				<ul class="food-list columns six alpha">
 					
 					<li class="food-item">
 							<h4 class="food-name">Rhone-Style Blend</h4>
@@ -1165,7 +1614,7 @@ body {
                     
                     </ul>
             
-            <ul class="food-list columns six offset-by-two">
+            <ul class="food-list columns six offset-by-one omega">
 					
 					<li class="food-item">
 							<h4 class="food-name">Vidal / Pinot Gris</h4>
@@ -1186,33 +1635,187 @@ body {
 				</ul>
             </div>          
             
-<!--7th menu-->            
+<!--7th menu-->
+       
+       <div class="menu columns thirteen">
+			    <div class="menu-title" id="white-by">
+				    <h2>WHITE BY THE BOTTLE</h2>
+			    </div>
+		  
+				
+				<ul class="food-list columns six alpha">
 					
+					<li class="food-item">
+							<h4 class="food-name">Chenin Blanc (Sparkling</h4>
+							<p class="food-ingred">Cht. L'Aulee, Loire NV</p>
+							<p class="food-price"></p>
+					
+					 </li>
+                    
+                    <li class="food-item">
+							<h4 class="food-name">Albarino</h4>
+							<p class="food-ingred">Campos de Celtas, Rias Baixas                                     '12</p>
+							<p class="food-price"></p>
+					
+					 </li>
+                    
+                    <li class="food-item">
+							<h4 class="food-name">Viogn. / Mars / Gren</h4>
+							<p class="food-ingred">Tablas Creek, Paso Robles '12                                       </p>
+							<p class="food-price"></p>
+					
+					 </li>
+                    
+                    </ul>
+            
+            <ul class="food-list columns six offset-by-one omega">
+					
+					<li class="food-item">
+							<h4 class="food-name">Sauvignon Blanc J.</h4>
+							<p class="food-ingred">Claude Dagueneau, Pouilly Fume                                        '12</p>
+							<p class="food-price"></p>
+					
+					 </li>
+                
+                <li class="food-item">
+							<h4 class="food-name">Sauvignon Blanc</h4>
+							<p class="food-ingred">Movia, Slovenia '11</p>
+							<p class="food-price"></p>
+					
+					 </li>
+                
+                
+                <li class="food-item">
+							<h4 class="food-name">Chardonnay</h4>
+							<p class="food-ingred">Vincent Morey, Chassagne- 
+                                Montrachet '12</p>
+							<p class="food-price"></p>
+					
+					 </li>
+        
+					 
+				</ul>
+            </div>      
+            
+<!--8th menu-->            
+
+     
+ <div class="menu columns thirteen">
+			    <div class="menu-title" id="red-by">
+				    <h2>RED BY THE BOTTLE</h2>
+			    </div>
+		  
+				
+				<ul class="food-list columns six alpha">
+					
+					<li class="food-item">
+							<h4 class="food-name">Sangiovese</h4>
+							<p class="food-ingred">Capezzana, Tuscany '11</p>
+							<p class="food-price"></p>
+					
+					 </li>
+                    
+                    <li class="food-item">
+							<h4 class="food-name">Nero D'Avola</h4>
+							<p class="food-ingred">Purato, Sicily '13</p>
+							<p class="food-price"></p>
+					
+					 </li>
+                    
+                   <li class="food-item">
+							<h4 class="food-name">Garnacha</h4>
+							<p class="food-ingred">Camino de Navaherreros, Madrid '12</p>
+							<p class="food-price"></p>
+					
+					 </li>
+					 
+					 <li class="food-item">
+							<h4 class="food-name">Claret</h4>
+							<p class="food-ingred">Steltzar, Napa '12</p>
+							<p class="food-price"></p>
+					
+					 </li>
+					 
+					 <li class="food-item">
+							<h4 class="food-name">Monastrell / Syrah</h4>
+							<p class="food-ingred">Campos de Risca, Jumilla '11</p>
+							<p class="food-price"></p>
+					
+					 </li>
+                    
+                    </ul>
+            
+            <ul class="food-list columns six offset-by-one omega">
+					
+					<li class="food-item">
+							<h4 class="food-name">Tempranillo</h4>
+							<p class="food-ingred">La Emperatriz, Rioja '08</p>
+							<p class="food-price"></p>
+					
+					 </li>
+                
+                <li class="food-item">
+							<h4 class="food-name">Carmenere</h4>
+							<p class="food-ingred">Laura Hartwig, Colchagua '10</p>
+							<p class="food-price"></p>
+					
+					 </li>
+                
+                
+                <li class="food-item">
+							<h4 class="food-name">Merlot</h4>
+							<p class="food-ingred">Freemark Abbey, Napa '11</p>
+							<p class="food-price"></p>
+					
+					 </li>
+					 
+					 <li class="food-item">
+							<h4 class="food-name">Merlot / Canernet</h4>
+							<p class="food-ingred">Black Ankle, Mt. Airy '11</p>
+							<p class="food-price"></p>
+					
+					 </li>
+					 
+					 <li class="food-item">
+							<h4 class="food-name">Cabernet / Cinsault</h4>
+							<p class="food-ingred">Chateau Musar, Bekaa Valley '05</p>
+							<p class="food-price"></p>
+					
+					 </li>
+        
+					 
+				</ul>
+            </div>              
+     </div> 
+    </div>
+     </div>
+            
+<!--9th menu-->            
 			</div>
 	     </div>
+   
     </div>
   
   
   
-   <!--   not available for now 
-   
-   
-    <ul class="menu-container columns four">
-    
-     <li> 
-    
-    <h3 class="food-title">Pickled Eggs</h3>
-        
-        <p class="food-ingred">beets, onions</p>
-        <p class="food-price">2.00</p>
-    
-     </li> 
-    
-    
-    -->
-    
+  
+
+		
+<!--
+	Form Code for Reservations
+
+
+<input type="text" placeholder="MM/DD/YY" value="" name="date">
+
+<select name="time">
+	<option selected disabled>Select a Time</option>
+	<option>5:00pm</option>
+	<option>5:30pm</option>
+</select>
+
+<input class="submitButton" type="submit" value="Find a Table">
  
-    
+ -->  
     
     
     
@@ -1220,9 +1823,81 @@ body {
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <!-- Add your site or application content here -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>
-window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
-    </script><!-- Load jQuery Plugins here -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <!-- Load jQuery Plugins here -->
     <script src="js/plugins.js"></script><script src="js/main.js"></script>
+    
+<!--ADDED SCRIPTS-->
+ <!--added java -->
+ 
+<script src="js/vendor/jquery.scrollTo.min.js"></script>
+<script src="js/vendor/jquery.localScroll.min.js"></script>
+<script src="js/vendor/waypoints.min.js"></script>
+		<script src="js/vendor/waypoints-sticky.min.js"></script>
+		<script src="js/vendor/modal.js"></script>
+		<script src="js/vendor/jquery.flexslider-min.js"></script>
+		
+ 
+ 
+ 
+ 
+ <!--added java -->   
+    
+    
+    
+    
+		<script>
+			$(function (){
+				$('.sidebar-navigation').localScroll({
+					axis: 'y',
+					hash: false,
+					duration: 1000,
+					target: '#menu-modal'
+				});
+				
+				// Show/hide menu based on scroll location
+				
+				
+				/*
+				$('#beer-snacks').waypoint(function (direction) {
+					if (direction === 'down') {
+						$('#dinner-menu .sidebar-navigation').show();
+						$('#drink-menu .sidebar-navigation').hide();
+					} else {
+						$('#dinner-menu .sidebar-navigation').hide();
+						$('#drink-menu .sidebar-navigation').hide();
+					}
+				});
+				
+				$('#beer').waypoint(function (direction) {
+					if (direction === 'down') {
+						$('#dinner-menu .sidebar-navigation').hide();
+						$('#drink-menu .sidebar-navigation').show();
+					} else {
+						$('#dinner-menu .sidebar-navigation').show();
+						$('#drink-menu .sidebar-navigation').hide();
+					}
+				});
+				*/
+			});
+		</script>
+    
+    <script>
+			$(function () {
+				$('#about-modal').on('shown.bs.modal', function (e) {
+					$('.flexslider').flexslider({
+						animation: 'slide',
+						slideshowSpeed: 2000,
+						animationSpeed: 1000,
+						pauseOnHover: true,					
+					});
+				});
+			});
+			
+			
+		</script>
+    
+    
 </body>
 </html>
